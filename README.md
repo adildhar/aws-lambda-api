@@ -41,5 +41,7 @@ You get the invoke URL after deploy API.
 
 
 
+### For detailed stepup, refer to following wiki link
+https://github.com/adildhar/aws-lambda-api/wiki
 
 
