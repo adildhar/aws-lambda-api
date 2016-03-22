@@ -8,7 +8,7 @@ https://github.com/adildhar/aws-lambda-api/blob/master/index.handler
 
 
 2). Assign the IAM role for the function with following 
-
+````
 Action": [
         "dynamodb:DeleteItem",
         "dynamodb:GetItem",
@@ -22,17 +22,19 @@ Action": [
         "logs:CreateLogStream",
         "logs:PutLogEvents"
       ]
-
+````
 3). Create api using Amazon API gateway.
+`````
 Method: Post
 Integration Type: Lambda Function
 Lambda Region: <yourregion>
 Lambda Function: <yourlambdafunctionname>
-
+``````
 4).  Deploy API
+`````
 Deployment Stage: New stage
 stage Name: prod
-
+````
 You get the invoke URL after deploy API.
 
 5). Using Postman plugin in Chrome, you can test the functionality
