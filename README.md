@@ -1,5 +1,5 @@
 # aws-lambda-api
-Use API to get item values from DynamoDB using Lambda Function
+### This Lambda function is used to get item values from Dynamodb table which is integrated with Amazon API Gateway. By invoking API url the lambda functions gets the item value.
 
 
 1) Create a Lambda Function for item values from DynamoDB table. Use the below code.
