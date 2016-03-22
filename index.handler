@@ -1,0 +1,36 @@
+var AWS = require('aws-sdk');
+AWS.config.update(
+    {
+        region: 'us-east-1',
+        AWS_ACCESS_KEY_ID: 'xxxxxxxxxxxxxxxxxx',
+        AWS_SECRET_ACESS_KEY: 'xxxxxxxxxxxxxxxxx'
+    }
+    );
+
+function getkeyValues(keyName, callback) {
+    var params = {
+        TableName : 'keytable',
+        AttributesToGet: [ keyName ]
+    };
+    var dynamo = new AWS.DynamoDB();
+    dynamo.scan(params, function(err, data) {
+        if (err) {
+            console.log (err)
+            callback(err);
+        } else {
+            callback(data.Items);
+            console.log(data.Items);
+        }
+    });
+} 
+
+
+exports.handler = function(event, context){
+    var keyCreds = {};
+    keyCreds.keyName = event.keyName;
+    console.log("Querying for keys.");
+    getkeyValues(keyCreds.keyName, function (data) {
+    console.log(data);
+    context.succeed(data);
+});
+};
